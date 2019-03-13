@@ -6,12 +6,12 @@ class Emitente {
     val cnpj: String
 
     constructor(nome: String, cnpj: String) {
-        this.nome = nome.takeIf { nome.isNullOrEmpty() } ?: "Não identificado"
+        this.nome = nome.takeIf { !nome.isNullOrEmpty() } ?: "Não identificado"
         this.cnpj = cnpj
     }
 
     constructor(nome: String){
-        this.nome = nome
+        this.nome = nome.takeIf { !nome.isNullOrEmpty() } ?: "Não identificado"
         this.cnpj = ""
     }
 }
